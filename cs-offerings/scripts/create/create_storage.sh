@@ -58,8 +58,8 @@ if [ "${PAID}" == "true" ]; then
 	fi
 else
 	if [ "$(kubectl get pvc | grep shared-pvc | awk '{print $2}')" != "Bound" ]; then
-		echo "The Persistant Volume does not seem to exist or is not bound"
-		echo "Creating Persistant Volume"
+		echo "The Persistent Volume does not seem to exist or is not bound"
+		echo "Creating Persistent Volume"
 		
 		# making a pv on kubernetes
 		echo "Running: kubectl create -f ${KUBECONFIG_FOLDER}/storage-free.yaml"
@@ -71,7 +71,7 @@ else
 			echo "Failed to create PV"
 		fi
 	else
-		echo "The Persistant Volume exists, not creating again"
+		echo "The Persistent Volume exists, not creating again"
 	fi
 
 fi
